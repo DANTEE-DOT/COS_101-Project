@@ -75,7 +75,7 @@ def open_new_window():
     result_label = label(new_window, textvariable=result)
     result_label.pack()
 
-French_dictionary = {
+Igbo_dictionary = {
     'kedu': "How are you",
     'Nnoo': "Hello",
     'Imela': "Thank you",
