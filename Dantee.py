@@ -1,7 +1,7 @@
-from importlib.metadata import entry_points
+
 from tkinter import Tk, Entry, Button, Label, StringVar
 from tkinter import Toplevel
-from unittest import result
+
 
 window = Tk()
 window.geometry("800x600")
@@ -60,53 +60,61 @@ def open_new_window():
 button = Button(window, text="Japanese", width=50, height=2,font=('Times New Roman', 14), command=open_new_window)
 button.pack(pady=20)
 
-button2= Button(window, text="Igala", width=50, height=2,font=('Times New Roman', 14))
-button2.pack(pady=20)
+
 
 def open_new_window():
     new_window = Toplevel(window)
-    new_window.title("French window")
+    new_window.title("hausa dictionary")
     new_window.geometry("300x300")
+
 
     entry_text = Entry(new_window)
     entry_text.pack()
 
+
     result = StringVar()
-    result_label = label(new_window, textvariable=result)
+    result_label = Label(new_window, textvariable=result)
     result_label.pack()
 
-Igbo_dictionary = {
-    'kedu': "How are you",
-    'Nnoo': "Hello",
-    'Imela': "Thank you",
-    'Olee': "what",
-    'Kachifo': "Kind of",
-    'Ezigbo': "Good",
-    'mmadu': "person",
-    'Ije oma': "Safe journey",
-    'Nke oma': "Good thing",
-    'Ndo': "sorry",
-    'Dalu': "Goodbye",
-    'Otu': "one",
-    'Nwere': "have",
-    'Okwu': "word",
-    'Aka': "Hand",
-    'Ibu': "be",
-    'a': "this",
-    'Nulo': "Home",
-    'Ala': "Land",
-    'Ndi ikom': "Men",
-}
+    hausa_dictionary = {
+        "house": "gida",
+        "car": "mota",
+        "hospital": "asibiti",
+        "boy": "yaro",
+        "girl": "yarinya",
+        "tomorrow": "gobe",
+        "school": "makaranta",
+        "chicken": "kaza",
+        "hand": "ido",
+        "wash": "wanke",
+        "elephant": "giwa",
+        "yam": "doya",
+        "potato": "dankali",
+        "chair": "kujera",
+        "donkey": "jaki",
+        "horse": "doki",
+        "money": "kudi",
+        "mosque": "masallaci",
+        "shoe": "takalmi",
+        "twenty": "ashirin"
+    }
 
-def search(word):
-    if word in French_dictionary.keys():
-        result.set(French_dictionary[word])
-        print(French_dictionary[word])
-    else:
-        result.set("Not Found")
 
-    search_btn = Button(open_new_window, text="Search", font=("Times New Roman", 14),command=lambda:  search(entry_points().get()))
+    def search(word):
+        if word in hausa_dictionary.keys():
+            result.set(hausa_dictionary[word])
+            print(hausa_dictionary[word])
+        else:
+            result.set("Not Found")
+
+
+    search_btn = Button(new_window, text="Search", font=("Times New Roman", 14), command=lambda: search(entry_text.get()))
     search_btn.pack()
+
+
+button2= Button(window, text="Hausa", width=50, height=2,font=('Times New Roman', 14), command=open_new_window)
+button2.pack(pady=20)
+
 
 button3= Button(window, text="French", width=50, height=2,font=('Times New Roman', 14),command=open_new_window)
 button3.pack(pady=20)
