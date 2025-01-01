@@ -115,8 +115,53 @@ def open_new_window():
 button2= Button(window, text="Hausa", width=50, height=2,font=('Times New Roman', 14), command=open_new_window)
 button2.pack(pady=20)
 
+def open_new_window():
+    new_window = Toplevel(window)
+    new_window.title("Zulu dictionary")
+    new_window.geometry("400x300")
 
-button3= Button(window, text="French", width=50, height=2,font=('Times New Roman', 14),command=open_new_window)
+
+    entry_text = Entry(new_window)
+    entry_text.pack()
+
+    result = StringVar()
+    result_label = Label(new_window, textvariable=result)
+    result_label.pack()
+
+    Zulu_dictionary = {
+        'sawubona': "Hello",
+        'ngiyabonga': "Thank you",
+        'hamba kahle': "Goodbye",
+        'kusasa': "Tomorrow",
+        'umndeni': "Family",
+        'umngane': "Friend",
+        'uthando': "Love",
+        'amanzi': "Water",
+        'ukudla': "Food",
+        'isikhathi': "Time",
+        'isikhumbuzo': "Memory",
+        'umsebenzi': "Work",
+        'umfundi': "Student",
+        'uthisha': "Teacher",
+        'ikhaya': "Home",
+        'umhlaba': "World",
+        'isibhedlela': "Hospital",
+        'imoto': "Car",
+        'isikhwama': "Bag",
+        'izicathulo': "Shoes"
+    }
+
+    def search(word):
+        word = entry_text.get().lower()
+        if word in Zulu_dictionary.keys():
+            print(Zulu_dictionary[word])
+        else:
+            result.set("Not Found")
+
+    search_btn = Button(new_window, text="search", font=("Times New Roman", 14), command=lambda : search(entry_text.get()))
+    search_btn.pack()
+
+button3= Button(window, text="Zulu", width=50, height=2,font=('Times New Roman', 14),command=open_new_window)
 button3.pack(pady=20)
 button4= Button(window, text="Igala", width=50, height=2,font=('Times New Roman', 14))
 button4.pack(pady=20)
