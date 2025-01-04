@@ -209,8 +209,8 @@ def open_new_window_german_english():
     search_btn = Button(new_window, text="Search", font=("Times New Roman", 14), command=lambda: search(entry_text.get()))
     search_btn.pack()
 
-button3 = Button(window, text="German to English", width=50, height=2, font=('Times New Roman', 14), command=open_new_window_german_english)
-button3.pack(pady=20)
+button4 = Button(window, text="German to English", width=50, height=2, font=('Times New Roman', 14), command=open_new_window_german_english)
+button4.pack(pady=20)
 
 button4= Button(window, text="Igala", width=50, height=2,font=('Times New Roman', 14))
 button4.pack(pady=20)
