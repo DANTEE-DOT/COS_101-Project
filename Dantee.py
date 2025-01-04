@@ -163,6 +163,55 @@ def open_new_window():
 
 button3= Button(window, text="Zulu", width=50, height=2,font=('Times New Roman', 14),command=open_new_window)
 button3.pack(pady=20)
+
+def open_new_window_german_english():
+    new_window = Toplevel(window)
+    new_window.title("German to English Dictionary")
+    new_window.geometry("400x300")
+
+    entry_text = Entry(new_window)
+    entry_text.pack()
+
+    result = StringVar()
+    result_label = Label(new_window, textvariable=result)
+    result_label.pack()
+
+    german_english_dictionary = {
+        "apfel": "apple",
+        "baum": "tree",
+        "haus": "house",
+        "katze": "cat",
+        "hund": "dog",
+        "auto": "car",
+        "stuhl": "chair",
+        "tisch": "table",
+        "buch": "book",
+        "blume": "flower",
+        "schule": "school",
+        "lehrer": "teacher",
+        "freund": "friend",
+        "wasser": "water",
+        "essen": "food",
+        "hemd": "shirt",
+        "hose": "pants",
+        "tage": "days",
+        "monat": "month",
+        "jahre": "years",
+    }
+
+    def search(word):
+        word = entry_text.get().lower()
+        if word in german_english_dictionary.keys():
+            result.set(german_english_dictionary[word])
+        else:
+            result.set("Not Found")
+
+    search_btn = Button(new_window, text="Search", font=("Times New Roman", 14), command=lambda: search(entry_text.get()))
+    search_btn.pack()
+
+button3 = Button(window, text="German to English", width=50, height=2, font=('Times New Roman', 14), command=open_new_window_german_english)
+button3.pack(pady=20)
+
 button4= Button(window, text="Igala", width=50, height=2,font=('Times New Roman', 14))
 button4.pack(pady=20)
 button5= Button(window, text="Hausa", width=50, height=2,font=('Times New Roman', 14))
