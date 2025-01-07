@@ -161,6 +161,7 @@ def open_new_window():
     search_btn = Button(new_window, text="search", font=("Times New Roman", 14), command=lambda : search(entry_text.get()))
     search_btn.pack()
 
+
 button3= Button(window, text="Zulu", width=50, height=2,font=('Times New Roman', 14),command=open_new_window)
 button3.pack(pady=20)
 button4= Button(window, text="Igala", width=50, height=2,font=('Times New Roman', 14))
