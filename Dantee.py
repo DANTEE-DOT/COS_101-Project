@@ -213,4 +213,52 @@ def open_new_window():
 button4 = Button(window, text="german", width=50, height=2, font=('Times New Roman', 14), command=open_new_window)
 button4.pack(pady=20)
 
+def open_new_window():
+    new_window = Toplevel(window)
+    new_window.title("Igbo windows")
+    new_window.geometry("300x300")
+
+    entry_text = Entry(new_window)
+    entry_text.pack()
+
+    result = StringVar()
+    result_label = Label(new_window, textvariable=result)
+    result_label.pack()
+
+    english_to_igbo_dict = {
+        "hello": "Ndewo",
+        "goodbye": "Ka ọ dị",
+        "thank you": "Daalụ",
+        "please": "Biko",
+        "yes": "Ee",
+        "no": "Mba",
+        "how are you?": "Kedu?",
+        "I love you": "A hụrụ m gị n’anya",
+        "friend": "Enyi",
+        "family": "Ezinụlọ",
+        "water": "Mmiri",
+        "food": "Nri",
+        "house": "Ụlọ",
+        "book": "Akwụkwọ",
+        "school": "Ụlọ akwụkwọ",
+        "sun": "Anwụ",
+        "moon": "Onwa",
+        "star": "Kpakpando",
+        "child": "Nwa",
+        "man": "Nwoke",
+    }
+
+    def search(word):
+        word = word.lower()
+        if word in english_to_igbo_dict:
+            print (english_to_igbo_dict[word])
+        else:
+            print ("Translation not found")
+
+    search_btn = Button(new_window, text="search", font=("Times New Roman", 14), command=lambda: search (entry_text.get()))
+    search_btn.pack()
+
+button5 = Button(window, text="Igbo", width=50, height=2, font=('Times New Roman', 14), command=open_new_window)
+button5.pack(pady=20)
+
 window.mainloop()
